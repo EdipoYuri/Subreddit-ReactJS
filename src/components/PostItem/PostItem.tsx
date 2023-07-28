@@ -12,7 +12,12 @@ import {
   CreateInfo,
   Domain,
   PinIcon,
-  PinContainer
+  PinContainer,
+  Interactions,
+  ArrowIcon,
+  ChatIcon,
+  InteractionContainer,
+  InteractionText
 } from './Styles'
 
 type TProps = {
@@ -23,11 +28,23 @@ type TProps = {
   time: number,
   url: string,
   stickied: boolean,
-  thumbnail?: string
+  thumbnail?: string,
+  numComments: number,
+  upvotes: number
 }
 
 const PostItem = (props: TProps) => {
-  const { title, author, domain, time, url, stickied, thumbnail } = props
+  const {
+    title,
+    author,
+    domain,
+    time,
+    url,
+    stickied,
+    thumbnail,
+    numComments,
+    upvotes,
+  } = props
 
   const relativeTime = formatDistanceToNow(new Date(time * 1000), { addSuffix: true, locale: ptBR })
 
@@ -68,6 +85,18 @@ const PostItem = (props: TProps) => {
 
         <Domain>{domain}</Domain>
       </Content>
+
+      <Interactions>
+        <InteractionContainer title="Upvotes">
+          <ArrowIcon />
+          <InteractionText>{upvotes}</InteractionText>
+        </InteractionContainer>
+
+        <InteractionContainer title="Comentários">
+          <ChatIcon />
+          <InteractionText>{numComments}</InteractionText>
+        </InteractionContainer>
+      </Interactions>
     </Item>
   )
 }

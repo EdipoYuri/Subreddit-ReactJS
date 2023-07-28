@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import { PinAngleFill } from '@styled-icons/bootstrap/PinAngleFill'
+import { ArrowUp } from '@styled-icons/entypo/ArrowUp'
+import { ChatRightDotsFill } from '@styled-icons/bootstrap/ChatRightDotsFill'
 
 export const Item = styled.article`
   width: 100%;
@@ -8,6 +10,7 @@ export const Item = styled.article`
 
   display: flex;
   flex-direction: row;
+  align-items: center;
   cursor: pointer;
 
   &:hover {
@@ -20,6 +23,7 @@ export const Image = styled.img`
   height: 77px;
   border-radius: 8px;
   margin-right: 13px;
+  margin-left: 5px;
 
   background-color: #A7B0BE;
 `
@@ -29,6 +33,27 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+`
+
+export const Interactions = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`
+
+export const InteractionContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+`
+
+export const InteractionText = styled.span`
+  font-family: 'Mulish', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: ${({ theme }) => theme.textLight}90;
 `
 
 export const Title = styled.div`
@@ -42,13 +67,13 @@ export const Title = styled.div`
 `
 
 export const CreateInfo = styled.div`
-  color: #4c5667;
+  color: ${({ theme }) => theme.textLight};
   font-size: 16px;
   font-family: 'Mulish', sans-serif;
   margin-bottom: 10px;
 
   a {
-    color: #6324c6;
+    color:  ${({ theme }) => theme.text};
     cursor: pointer;
     text-decoration: none;
   }
@@ -66,9 +91,9 @@ export const PinContainer = styled.div`
   margin-right: 10px;
   border-radius: 10px;
   border: 2px solid ${({ theme }) => theme.primary};
-  background-color: #6324c630;
+  background-color:  ${({ theme }) => theme.primary}30;
 
-  color: #6324c6;
+  color:  ${({ theme }) => theme.primary};
   font-family: 'Mulish', sans-serif;
   font-weight: 700;
   font-size: 14px;
@@ -81,5 +106,17 @@ export const PinContainer = styled.div`
 export const PinIcon = styled(PinAngleFill)`
   width: 16px;
   margin-right: 5px;
-  color: #6324c6;
+  color:  ${({ theme }) => theme.primary};
+`
+
+export const ArrowIcon = styled(ArrowUp)`
+  width: 30px;
+  margin-right: 10px;
+  color: ${({ theme }) => theme.textLight}90;
+`
+
+export const ChatIcon = styled(ChatRightDotsFill)`
+  width: 24px;
+  margin-right: 10px;
+  color: ${({ theme }) => theme.textLight}90;
 `

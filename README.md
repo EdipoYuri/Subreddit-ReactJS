@@ -5,7 +5,7 @@ criar um site em ReactJS que exiba posts do [SubReddit do ReactJS](https://www.r
 - Acessar o SubReddit através da logo do projeto, na barra superior;
 - Trocar entre tema claro e escuro pelo switch na barra superior;
 - Trocar entre posts em destaque (Hot), novos (New) e em ascenção (Rising);
-- Ver a lista de posts de cada categoria, exibindo título, momento da criação, thumbnail do post e autor;
+- Ver a lista de posts de cada categoria, exibindo título, momento da criação, thumbnail do post e autor, alem do número de comentários e "curtidas" do post;
 - Acessar o post no Reddit clicando no item da lista e poder ver o perfil do autor, clicando no nome;
 - Carregar mais posts (+10 por clique) através do botão no final da lista.
 

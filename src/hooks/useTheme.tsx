@@ -18,7 +18,8 @@ type TColors = {
   primary: string,
   primaryDark: string,
   background: string,
-  text: string
+  text: string,
+  textLight: string
 }
 
 const themes = {
@@ -28,13 +29,15 @@ const themes = {
     primaryDark: '#340d73',
     background: '#FFFFFF',
     text: '#000000',
+    textLight: '#4c5667',
   },
   dark: {
     name: 'dark',
     primary: '#6324c6',
     primaryDark: '#340d73',
     background: '#000000',
-    text: '#FFFFFF'
+    text: '#FFFFFF',
+    textLight: '#798394',
   }
 }
 

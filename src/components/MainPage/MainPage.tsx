@@ -25,6 +25,8 @@ type TSinglePost = {
   url: string,
   stickied: boolean,
   thumbnail?: string,
+  num_comments: number,
+  ups: number
 }
 
 type TPostsList = {
@@ -104,6 +106,8 @@ const MainPage = () => {
             url={item.data.url}
             stickied={item.data.stickied}
             thumbnail={item.data.thumbnail}
+            numComments={item.data.num_comments}
+            upvotes={item.data.ups}
           />
         ))}
 

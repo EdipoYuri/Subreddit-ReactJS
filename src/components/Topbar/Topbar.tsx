@@ -47,7 +47,11 @@ const Topbar = () => {
 
   return (
     <Bar>
-      <Button disable={disableButton} onClick={onClickSwitch}>
+      <Button
+        disable={disableButton}
+        onClick={onClickSwitch}
+        title="Botão para alterar o tema"
+      >
         <Player
           ref={playerRef}
           src={ThemeSwitch}
@@ -60,7 +64,11 @@ const Topbar = () => {
       </Button>
 
 
-      <Title href="https://www.reddit.com/r/reactjs/" target="_blank">
+      <Title
+        href="https://www.reddit.com/r/reactjs/"
+        target="_blank"
+        title="Ir para a página o SubReddit do ReactJS"
+      >
         REACT<span>JS</span>
       </Title>
     </Bar>

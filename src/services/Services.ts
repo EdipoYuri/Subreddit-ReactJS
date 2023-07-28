@@ -17,7 +17,9 @@ type TSinglePost = {
   domain: string,
   url: string,
   stickied: boolean,
-  thumbnail?: string
+  thumbnail?: string,
+  num_comments: number,
+  ups: number
 }
 
 type TPostsList = {
