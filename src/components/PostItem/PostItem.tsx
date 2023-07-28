@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Item, Image, Content, Title, CreateInfo, Domain, PinIcon, PinContainer } from './Styles'
-import { formatDistanceToNow, parseISO } from 'date-fns'
+import { formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 
 type TProps = {
