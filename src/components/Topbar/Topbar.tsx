@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import { Bar, Button, Title } from './Styles'
 import { useTheme } from '../../hooks/useTheme'
 import ThemeSwitch from '../../assets/ThemeSwitch.json'
@@ -12,7 +12,6 @@ const Topbar = () => {
 
   const onLoadLottie = () => {
     if (selectedTheme === 'dark') {
-      console.log(selectedTheme)
       playerRef.current?.setSeeker(140)
     }
   }
