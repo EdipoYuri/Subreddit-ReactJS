@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-
-import { GlobalStyles } from './theme/globalStyles'
-import Topbar from './components/Topbar/Topbar'
-import MainPage from './components/MainPage/MainPage'
-import CustomThemeProvider from './hooks/useTheme'
 import { ToastContainer } from 'react-toastify'
+
+import { GlobalStyles } from 'theme/globalStyles'
+import CustomThemeProvider from 'hooks/useTheme'
+
+import { Topbar, MainPage } from 'components'
+
 import 'react-toastify/dist/ReactToastify.css'
 
 const Page = styled.div`

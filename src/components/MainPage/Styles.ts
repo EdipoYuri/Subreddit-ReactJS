@@ -5,7 +5,7 @@ import { Hot } from '@styled-icons/boxicons-solid/Hot'
 import { NewReleases } from '@styled-icons/material-outlined/NewReleases'
 import { ArrowTrendingLines } from '@styled-icons/fluentui-system-filled/ArrowTrendingLines'
 
-export const Content = styled.div`
+export const Content = styled.main`
   width: 90%;
   height: calc(100vh - 91px);
 `
@@ -17,6 +17,7 @@ export const Container = styled.div<{ orientation: string }>`
   align-items: center;
   justify-content: center;
   padding: 20px;
+  padding-bottom: 0px;
 `
 
 export const Image = styled.img<{ buttonIcon?: boolean }>`

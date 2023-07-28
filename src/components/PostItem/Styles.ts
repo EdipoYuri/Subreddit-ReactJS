@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { PinAngleFill } from '@styled-icons/bootstrap/PinAngleFill'
 
-export const Item = styled.div`
+export const Item = styled.article`
   width: 100%;
   padding: 10px 0;
   border-top: 1px solid #4C5667;
@@ -15,7 +15,7 @@ export const Item = styled.div`
   }
 `
 
-export const Image = styled.div`
+export const Image = styled.img`
   width: 77px;
   height: 77px;
   border-radius: 8px;
@@ -80,6 +80,6 @@ export const PinContainer = styled.div`
 
 export const PinIcon = styled(PinAngleFill)`
   width: 16px;
-  color: #6324c6;
   margin-right: 5px;
+  color: #6324c6;
 `

@@ -24,6 +24,10 @@ const TextButton = styled.button<TProps>`
   align-items: center;
 
   cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.primaryDark};
+  }
 `
 
 export default TextButton

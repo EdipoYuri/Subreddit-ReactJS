@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Bar = styled.div`
+export const Bar = styled.header`
   width: 100%;
   height: 91px;
   background-color: #6324C6;

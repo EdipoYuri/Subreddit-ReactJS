@@ -16,6 +16,7 @@ type TThemeContext = {
 type TColors = {
   name: string,
   primary: string,
+  primaryDark: string,
   background: string,
   text: string
 }
@@ -24,12 +25,14 @@ const themes = {
   light: {
     name: 'light',
     primary: '#6324c6',
+    primaryDark: '#340d73',
     background: '#FFFFFF',
     text: '#000000',
   },
   dark: {
     name: 'dark',
     primary: '#6324c6',
+    primaryDark: '#340d73',
     background: '#000000',
     text: '#FFFFFF'
   }

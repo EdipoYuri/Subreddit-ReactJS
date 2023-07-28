@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-import TextButton from '../Buttons/TextButton'
-import PostItem from '../PostItem/PostItem'
-import ReactIcon from '../../assets/React-icon.png'
+import { TextButton, PostItem } from 'components'
+import ReactIcon from 'assets/React-icon.png'
 
 import {
   Container,
@@ -14,16 +13,18 @@ import {
   PlusIcon,
   TrendingIcon
 } from './Styles'
-import { toast } from 'react-toastify'
+import { getRedditPosts } from 'services/Services'
 
 type TSinglePost = {
   id: string,
+  name: string,
   title: string,
   author: string,
   created_utc: number,
   domain: string,
   url: string,
-  stickied: boolean
+  stickied: boolean,
+  thumbnail?: string,
 }
 
 type TPostsList = {
@@ -34,35 +35,36 @@ const MainPage = () => {
   const [filter, setFilter] = useState('hot')
   const [isLoading, setLoading] = useState(true)
   const [postsList, setPostsList] = useState<TPostsList[]>([])
-  const [limit, setLimit] = useState(9)
+  const [limit, setLimit] = useState(10)
 
   useEffect(() => {
-    setPostsList([])
-    getPosts(9)
+    getPosts(10, true)
   }, [filter])
 
-  const getPosts = (limit: number) => {
-    setLimit(limit)
+  const getPosts = async (limit: number, clearPosts: boolean) => {
+    if (clearPosts) setPostsList([])
 
     setLoading(true)
+    setLimit(limit)
 
-    fetch(`https://www.reddit.com/r/reactjs/${filter}.json?limit=${limit}`).then(res => {
-      if (res.status !== 200) {
-        toast('Erro ao buscar os posts. Tente novamente mais tarde.')
-        setLoading(false)
-        return
-      }
-
-      res.json().then(data => {
-        if (data !== null) {
-          setPostsList(data.data.children)
-          setLoading(false)
-        }
-      })
+    const response = await getRedditPosts({
+      filter,
+      limit: 10,
+      after: postsList.length > 0 && !clearPosts
+        ? postsList[postsList.length - 1].data.name
+        : null
     })
+
+    if (!response) return setLoading(false)
+
+    setPostsList(clearPosts
+      ? response
+      : [...postsList, ...response]
+    )
+    setLoading(false)
   }
 
-  const onClickLoadMore = () => getPosts(limit + 10)
+  const onClickLoadMore = () => getPosts(limit + 10, false)
 
   return (
     <Content>
@@ -101,6 +103,7 @@ const MainPage = () => {
             domain={item.data.domain}
             url={item.data.url}
             stickied={item.data.stickied}
+            thumbnail={item.data.thumbnail}
           />
         ))}
 
@@ -110,7 +113,7 @@ const MainPage = () => {
             alt="React logo"
             buttonIcon={limit > 10}
           />
-        ) : postsList.length === 100 || postsList.length < limit ? (
+        ) : postsList.length < limit ? (
           <NothingToShowText>Não há mais posts a serem exibidos</NothingToShowText>
         ) : (
           <TextButton

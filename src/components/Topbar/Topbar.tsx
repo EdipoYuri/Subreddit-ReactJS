@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react'
-import { Bar, Button, Title } from './Styles'
-import { useTheme } from '../../hooks/useTheme'
-import ThemeSwitch from '../../assets/ThemeSwitch.json'
 import { Player } from '@lottiefiles/react-lottie-player'
+
+import { useTheme } from 'hooks/useTheme'
+import ThemeSwitch from 'assets/ThemeSwitch.json'
+
+import { Bar, Button, Title } from './Styles'
 
 const Topbar = () => {
   const { toggleTheme, selectedTheme } = useTheme()
@@ -17,8 +19,9 @@ const Topbar = () => {
   }
 
   const onClickSwitch = () => {
-    toggleTheme()
     playerRef.current?.setPlayerSpeed(2)
+
+    toggleTheme()
     setDisableButton(true)
 
     if (selectedTheme === 'light') {
@@ -33,7 +36,6 @@ const Topbar = () => {
 
       return
     }
-
 
     playerRef.current?.setSeeker(140)
     playerRef.current?.play()
